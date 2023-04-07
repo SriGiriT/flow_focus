@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 Widget buttonWidget(
     {required String title,
     VoidCallback? onPressed,
-    required List<Color> colors, }) {
+    required List<Color> colors, 
+    required double width}) {
   return Container(
     height: 40,
-    width: 100,
+    width: width,
     decoration: BoxDecoration(
       gradient: LinearGradient(colors: colors),
       borderRadius: BorderRadius.circular(2),

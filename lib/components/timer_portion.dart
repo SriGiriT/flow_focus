@@ -1,8 +1,8 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
-import 'package:growbdo/utils/local_circular_countdown_timer.dart';
+import 'package:flow_focus/utils/local_circular_countdown_timer.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'package:growbdo/constants.dart';
+import 'package:flow_focus/constants.dart';
 import '../components/button_widget.dart';
 
 class TimerPortion extends StatefulWidget {
@@ -42,6 +42,7 @@ class _TimerPortionState extends State<TimerPortion> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       buttonWidget(
+                        width: 100,
                         title: widget.breakState == "NotRunning"
                             ? "Start"
                             : widget.breakState == "Running"
@@ -79,6 +80,7 @@ class _TimerPortionState extends State<TimerPortion> {
                         width: 30,
                       ),
                       buttonWidget(
+                        width: 100,
                           title: "Stop",
                           colors: [Color(0xFFEF0304), Color(0xFFFF0000)],
                           onPressed: () {
@@ -187,6 +189,7 @@ class _TimerPortionState extends State<TimerPortion> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       buttonWidget(
+                        width: 100,
                         title: widget.currentState == "NotRunning"
                             ? "Start"
                             : widget.currentState == "Running"
@@ -222,6 +225,7 @@ class _TimerPortionState extends State<TimerPortion> {
                         width: 30,
                       ),
                       buttonWidget(
+                        width: 100,
                         title: "Stop",
                         colors: [Color(0xFFEF0304), Color(0xFFFF0000)],
                         onPressed: () {

@@ -1,14 +1,14 @@
 import 'dart:async';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
-import 'package:growbdo/utils/local_circular_countdown_timer.dart';
+import 'package:flow_focus/utils/local_circular_countdown_timer.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
-import 'package:growbdo/constants.dart';
-import 'package:growbdo/theme/theme_data.dart';
+import 'package:flow_focus/constants.dart';
+import 'package:flow_focus/theme/theme_data.dart';
 import 'components/button_widget.dart';
 import 'components/timer_portion.dart';
-import 'package:growbdo/screens/timer_screen.dart';
-import 'package:growbdo/utils/local_circular_countdown_timer.dart';
+import 'package:flow_focus/screens/timer_screen.dart';
+import 'package:flow_focus/utils/local_circular_countdown_timer.dart';
 
 
 void main() {

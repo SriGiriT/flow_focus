@@ -1,10 +1,10 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
-import 'package:growbdo/components/button_widget.dart';
-import 'package:growbdo/constants.dart';
+import 'package:flow_focus/components/button_widget.dart';
+import 'package:flow_focus/constants.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'package:growbdo/utils/local_circular_countdown_timer.dart';
-import 'package:growbdo/components/timer_portion.dart';
+import 'package:flow_focus/utils/local_circular_countdown_timer.dart';
+import 'package:flow_focus/components/timer_portion.dart';
 
 class TimerScreen extends StatelessWidget {
   const TimerScreen(
@@ -90,7 +90,7 @@ class TimerScreen extends StatelessWidget {
                       Color(0xFF696969),
                       Color(0xFF686868),
                       Color(0xFF3E3E3E)
-                    ], width: 300)
+                    ], width: 180)
                   ],
                 ),
                 decoration: BoxDecoration(
