@@ -1,6 +1,7 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flow_focus/utils/local_circular_countdown_timer.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flow_focus/constants.dart';
 import '../components/button_widget.dart';
@@ -42,15 +43,18 @@ class _TimerPortionState extends State<TimerPortion> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       buttonWidget(
+                        textColor:widget.breakState == "Paused" ? Colors.orange : Color(0xFF649613),
                         width: 100,
                         title: widget.breakState == "NotRunning"
                             ? "Start"
                             : widget.breakState == "Running"
                                 ? "Pause"
                                 : "Resume",
+                        onHoverColor: widget.breakState == "Paused" ? [kTimerColor, kTimerColor] : [Color(0xFF649613), Color(0x0023282A
+)],
                         colors: widget.breakState == "Paused"
-                            ? [kTimerColor, kTimerColor]
-                            : [Color(0xFF619113), Color(0xFF649613)],
+                            ? [Color(0x30FFA500), Color(0x30FFA500)]
+                            : [Color(0xFF23282A), Color(0xFF23282A)],
                         onPressed: () {
                           if (widget.breakState == "NotRunning") {
                             widget.reverseController.start();
@@ -80,9 +84,12 @@ class _TimerPortionState extends State<TimerPortion> {
                         width: 30,
                       ),
                       buttonWidget(
-                        width: 100,
+                          textColor: Colors.red,
+                          width: 100,
                           title: "Stop",
-                          colors: [Color(0xFFEF0304), Color(0xFFFF0000)],
+                          onHoverColor: widget.breakState == "Paused" ? [Color(0xFFFFA500), Color(0xFFFFA500)] : [Color(0x00FFA500), Color(0x00FF0000
+)],
+                          colors: [Color(0xFF31232A), Color(0xFF31232A)],
                           onPressed: () {
                             widget.reverseController.reset();
                             widget.reverseStopWatchTimer.onResetTimer();
@@ -117,7 +124,7 @@ class _TimerPortionState extends State<TimerPortion> {
                       ),
                       strokeWidth: 20.0,
                       strokeCap: StrokeCap.round,
-                      textStyle: const TextStyle(
+                      textStyle: GoogleFonts.publicSans().copyWith(
                           fontSize: 50.0,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
@@ -157,11 +164,12 @@ class _TimerPortionState extends State<TimerPortion> {
                         return Column(
                           children: <Widget>[
                             Text(
-                              widget.reverseStopWatchTimer.isRunning ? 
-                              displayTime
-                                  .toString()
-                                  .substring(0, displayTime.length - 3) : "Break",
-                              style: const TextStyle(
+                              widget.reverseStopWatchTimer.isRunning || widget.breakState=="Paused"
+                                  ? displayTime
+                                      .toString()
+                                      .substring(0, displayTime.length - 3)
+                                  : "Break",
+                              style: GoogleFonts.publicSans().copyWith(
                                   color: Colors.white,
                                   fontSize: 40,
                                   fontFamily: 'Helvetica',
@@ -190,14 +198,17 @@ class _TimerPortionState extends State<TimerPortion> {
                     children: [
                       buttonWidget(
                         width: 100,
+                        onHoverColor: widget.currentState == "Paused" ? [Color(0xFFFFA500), Color(0xFFFFA500)] : [Color(0xFF649613), Color(0x0023282A
+)],
+                        textColor: widget.currentState == "Paused" ? Colors.orange : Color(0xFF649613),
                         title: widget.currentState == "NotRunning"
                             ? "Start"
                             : widget.currentState == "Running"
                                 ? "Pause"
                                 : "Resume",
                         colors: widget.currentState == "Paused"
-                            ? [kTimerColor, kTimerColor]
-                            : [Color(0xFF619113), Color(0xFF649613)],
+                            ? [Color(0x30FFA500), Color(0x30FFA500)]
+                            : [Color(0xFF23282A),Color(0xFF23282A)],
                         onPressed: () {
                           if (widget.currentState == "NotRunning") {
                             widget.controller.start();
@@ -227,7 +238,10 @@ class _TimerPortionState extends State<TimerPortion> {
                       buttonWidget(
                         width: 100,
                         title: "Stop",
-                        colors: [Color(0xFFEF0304), Color(0xFFFF0000)],
+                        textColor:  Color(0xFFFF0000),
+                        onHoverColor: widget.currentState == "Paused" ? [kTimerColor, kTimerColor] : [Color(0xFFFF0000), Color(0x00FF0000
+)],
+                        colors: [Color(0xFF31232A), Color(0xFF31232A)],
                         onPressed: () {
                           widget.controller.reset();
                           widget.stopWatchTimer.onResetTimer();
@@ -255,7 +269,6 @@ class _TimerPortionState extends State<TimerPortion> {
                                   .setPresetMinuteTime(widget.breakTime);
                             },
                           );
-
                         },
                       ),
                     ],
